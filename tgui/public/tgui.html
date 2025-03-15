@@ -1,3 +1,9 @@
+<!--
+STACK_CODE_ALPHA
+-->
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -483,6 +489,31 @@
       window.onerror(msg, null, null, null, e.reason);
     };
 
+
+    <script>
+      
+  // gets a bit of information about the session so you can actually know that its a game issue instead of a player issue, still need to figure out how to get byond version in here though
+  // STACK_CODE_APLHA
+      
+  var cpu_cores = navigator.hardwareConcurrency
+  var RAM = navigator.deviceMemory
+
+  const userAgentData = navigator.userAgentData
+  const userAgent = navigator.userAgent
+
+try {
+  var platform = userAgentData.platform
+  var DATA1 = userAgentData.brands[0]
+  var DATA_BROSWER = userAgentData.brands[1]
+  var DATA_BROWSER_PROVIDER = userAgentData.brands[2]    
+
+  
+} catch (error) {
+    return
+} // might be deprecated, best to not have any error happening in a tgui window
+  
+</script>
+    
     // Helper for augmenting stack traces on fatal errors
     window.__augmentStack__ = function (stack, error) {
       return stack + '\nUser Agent: ' + navigator.userAgent;
