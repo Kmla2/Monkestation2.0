@@ -42,16 +42,16 @@
 			mentor_datum.is_contributor = TRUE
 
 ///Verifies if the client is considered a Mentor, AKA has a Mentor datum or is an Admin.
-/client/proc/is_mentor()
-	if(mentor_datum || check_rights_for(src, R_ADMIN, 0))
+/client/proc/is_mentor(client)
+	if(GLOB.mentor_datums[client] || mentor_datum || check_rights_for(src, R_ADMIN, 0)) // original mentor_datum kept in just in-case
 		return TRUE
 
 /proc/dementor(client/owner)
-	if(owner.is_mentor())
+	if(is_mentor(owner))
 		owner.mentor_datum.not_active = TRUE
 
 /proc/rementor(client/owner)
-	if(owner.is_mentor())
+	if(is_mentor(owner))
 		owner.mentor_datum.not_active = FALSE
 
 /proc/raw_is_mentor(ckey)
