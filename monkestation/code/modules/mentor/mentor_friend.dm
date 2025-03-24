@@ -4,7 +4,7 @@
 	set category = "Mentor"
 	set name = "Become Imaginary Friend"
 
-	if(!usr.client.is_mentor())
+	if(!is_mentor(usr.client))
 		return
 
 	if(istype(usr, /mob/camera/imaginary_friend/mentor))
@@ -46,7 +46,7 @@
 	set category = "Mentor"
 	set name = "End Imaginary Friendship"
 
-	if(!usr.client.is_mentor())
+	if(!is_mentor(usr.client))
 		return
 
 	if(!istype(usr, /mob/camera/imaginary_friend/mentor))
@@ -137,7 +137,7 @@
 
 /client/proc/create_ifriend(mob/living/friend_owner, seek_confirm = FALSE)
 	var/client/C = usr.client
-	if(!usr.client.is_mentor())
+	if(!is_mentor(usr.client))
 		return
 
 	if(istype(C.mob, /mob/camera/imaginary_friend))
