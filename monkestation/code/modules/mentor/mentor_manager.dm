@@ -46,7 +46,7 @@ GLOBAL_DATUM_INIT(mentor_requests, /datum/request_manager/mentor, new)
 /datum/request_manager/mentor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	// Only admins should be sending actions
 	var/client/mentor_client = usr.client
-	if(!mentor_client || !mentor_client.is_mentor())
+	if(!mentor_client || !is_mentor(mentor_client))
 		to_chat(mentor_client, "You are not allowed to be using this mentor-only proc. Please report it.", confidential = TRUE)
 
 	// Get the request this relates to
