@@ -102,7 +102,7 @@
 				return
 
 		/// Neither party is a mentor, they shouldn't be PMing!
-		if(!chosen_client.is_mentor() && !is_mentor())
+		if(!is_mentor(chosen_client) && !is_mentor())
 			return
 
 	msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
@@ -113,7 +113,7 @@
 
 	msg = emoji_parse(msg)
 	chosen_client << 'sound/items/bikehorn.ogg'
-	if(chosen_client.is_mentor())
+	if(is_mentor(chosen_client))
 		if(is_mentor())
 			/// Both are Mentors
 			to_chat(chosen_client,
@@ -161,7 +161,7 @@
 		if(request)
 			id = "[request.id]"
 
-	if(is_mentor() && chosen_client.is_mentor())
+	if(is_mentor() && is_mentor(chosen_client))
 		id = "Both Mentors, ID Retrival may be wrong: [id]"
 
 	var/regular_webhook_url = CONFIG_GET(string/regular_mentorhelp_webhook_url)
