@@ -43,8 +43,12 @@
 
 ///Verifies if the client is considered a Mentor, AKA has a Mentor datum or is an Admin.
 /client/proc/is_mentor(client)
-	if(GLOB.mentor_datums[client] || mentor_datum || check_rights_for(src, R_ADMIN, 0)) // original mentor_datum kept in just in-case
-		return TRUE
+	if(client && GLOB.mentor_datums[client])
+			return TRUE
+
+	if(GLOB.mentor_datums[src] || mentor_datum || check_rights_for(src, R_ADMIN, 0)) // only one place doesn't have a client as an argument and they might rise so gonna keep this
+			return TRUE
+
 
 /proc/dementor(client/owner)
 	if(is_mentor(owner))
