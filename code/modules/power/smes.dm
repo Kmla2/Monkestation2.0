@@ -81,6 +81,11 @@
 	if(!initial(charge) && !charge)
 		charge = C / 15000 * 1e6
 
+	#ifdef INFINITE_SMES
+	capacity = INFINITY
+	charge = INFINITY
+	#endif // just in-case
+
 /obj/machinery/power/smes/should_have_node()
 	return TRUE
 
