@@ -514,7 +514,7 @@ SHIFT_TIME_START_HOUR 7
 ## Enable randomized shift start times. Overrides SHIFT_TIME_REALTIME and SHIFT_TIME_START_HOUR
 #RANDOMIZE_SHIFT_TIME
 
-## Uncomment to automatically give all SMES infinite power cells upon spawn
+## Uncomment to automatically give all SMES infinite power upon map load
 #INFINITE_SMES
 
 ## A cap on how many monkeys may be created via monkey cubes
