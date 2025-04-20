@@ -60,6 +60,11 @@
 	terminal.master = src
 	update_appearance()
 
+	#ifdef INFINITE_SMES
+	capacity = INFINITY
+	charge = INFINITY
+	#endif
+
 /obj/machinery/power/smes/RefreshParts()
 	SHOULD_CALL_PARENT(FALSE)
 	var/IO = 0
