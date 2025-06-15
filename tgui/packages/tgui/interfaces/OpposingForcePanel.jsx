@@ -203,7 +203,7 @@ export const OpposingForceTab = (props) => {
           </Stack>
           <Stack>
             <Stack.Item>
-              <a href="https://wiki.monkestation.com/en/info/opfor">
+              <a href="https://mediawiki.monkestation.com/opfor">
                 <Button
                   icon="info"
                   color="orange"
@@ -213,7 +213,7 @@ export const OpposingForceTab = (props) => {
               </a>
             </Stack.Item>
             <Stack.Item>
-              <a href="https://wiki.monkestation.com/en/info/opfor">
+              <a href="https://mediawiki.monkestation.com/opfor">
                 <Button
                   icon="wrench"
                   color="red"
@@ -223,7 +223,7 @@ export const OpposingForceTab = (props) => {
               </a>
             </Stack.Item>
             <Stack.Item>
-              <a href="https://wiki.monkestation.com/info/rules">
+              <a href="https://mediawiki.monkestation.com/Rules">
                 <Button
                   icon="question"
                   color="yellow"
