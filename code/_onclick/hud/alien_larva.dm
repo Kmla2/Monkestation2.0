@@ -15,16 +15,16 @@
 	pull_icon = new /atom/movable/screen/pull(null, src)
 	pull_icon.icon = 'icons/hud/screen_alien.dmi'
 	pull_icon.update_appearance()
-	pull_icon.screen_loc = ui_above_movement
+	SET_SCREEN_LOC(pull_icon, ui_above_movement)
 	hotkeybuttons += pull_icon
 
 	using = new /atom/movable/screen/language_menu(null, src)
-	using.screen_loc = ui_alien_larva_language_menu
+	SET_SCREEN_LOC(using, ui_alien_larva_language_menu)
 	static_inventory += using
 
 	using = new /atom/movable/screen/navigate(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_alien_larva_navigate_menu
+	SET_SCREEN_LOC(using, ui_alien_larva_navigate_menu)
 	static_inventory += using
 
 	zone_select = new /atom/movable/screen/zone_sel/alien(null, src)

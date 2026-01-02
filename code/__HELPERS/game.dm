@@ -118,7 +118,7 @@
 	object_to_change.maptext = MAPTEXT(maptext)
 	object_to_change.maptext_height = maptext_height
 	object_to_change.maptext_width = maptext_width
-	object_to_change.screen_loc = screen_loc
+	SET_SCREEN_LOC(object_to_change, screen_loc)
 	return object_to_change
 
 /// Adds an image to a client's `.images`. Useful as a callback.

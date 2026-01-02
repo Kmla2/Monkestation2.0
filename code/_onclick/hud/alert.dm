@@ -954,7 +954,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 /atom/movable/screen/alert/poll_alert/proc/set_role_overlay()
 	var/role_or_only_question = poll.role || "?"
 	role_overlay = new
-	role_overlay.screen_loc = screen_loc
+	SET_SCREEN_LOC(role_overlay, screen_loc)
 	role_overlay.maptext = MAPTEXT("<span style='text-align: right; color: #B3E3FC'>[full_capitalize(role_or_only_question)]</span>")
 	role_overlay.maptext_width = 128
 	role_overlay.transform = role_overlay.transform.Translate(-128, 0)
@@ -1173,7 +1173,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
 		if(alert.icon_state == "template")
 			alert.icon = ui_style
-		alert.screen_loc = get_ui_alert_placement(i)
+		SET_SCREEN_LOC(alert, get_ui_alert_placement(i))
 		screenmob.client.screen |= alert
 	if(!viewmob)
 		for(var/viewer in mymob.observers)

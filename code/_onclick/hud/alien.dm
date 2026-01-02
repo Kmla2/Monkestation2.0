@@ -40,49 +40,49 @@
 	using = new /atom/movable/screen/swap_hand(null, src)
 	using.icon = ui_style
 	using.icon_state = "swap_1"
-	using.screen_loc = ui_swaphand_position(owner,1)
+	SET_SCREEN_LOC(using, ui_swaphand_position(owner,1))
 	static_inventory += using
 
 	using = new /atom/movable/screen/swap_hand(null, src)
 	using.icon = ui_style
 	using.icon_state = "swap_2"
-	using.screen_loc = ui_swaphand_position(owner,2)
+	SET_SCREEN_LOC(using, ui_swaphand_position(owner,2))
 	static_inventory += using
 
 	if(isalienhunter(mymob))
 		var/mob/living/carbon/alien/adult/hunter/H = mymob
 		H.leap_icon = new /atom/movable/screen/alien/leap()
-		H.leap_icon.screen_loc = ui_alien_storage_r
+		SET_SCREEN_LOC(H.leap_icon, ui_alien_storage_r)
 		static_inventory += H.leap_icon
 
 	using = new/atom/movable/screen/language_menu(null, src)
-	using.screen_loc = ui_alien_language_menu
+	SET_SCREEN_LOC(using, ui_alien_language_menu)
 	static_inventory += using
 
 	using = new /atom/movable/screen/navigate(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_alien_navigate_menu
+	SET_SCREEN_LOC(using, ui_alien_navigate_menu)
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_drop_throw
+	SET_SCREEN_LOC(using, ui_drop_throw)
 	static_inventory += using
 
 	using = new /atom/movable/screen/resist(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_above_movement
+	SET_SCREEN_LOC(using, ui_above_movement)
 	hotkeybuttons += using
 
 	throw_icon = new /atom/movable/screen/throw_catch(null, src)
 	throw_icon.icon = ui_style
-	throw_icon.screen_loc = ui_drop_throw
+	SET_SCREEN_LOC(throw_icon, ui_drop_throw)
 	hotkeybuttons += throw_icon
 
 	pull_icon = new /atom/movable/screen/pull(null, src)
 	pull_icon.icon = ui_style
 	pull_icon.update_appearance()
-	pull_icon.screen_loc = ui_above_movement
+	SET_SCREEN_LOC(pull_icon, ui_above_movement)
 	static_inventory += pull_icon
 
 //begin indicators
@@ -112,9 +112,9 @@
 	var/mob/living/carbon/alien/adult/H = mymob
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			SET_SCREEN_LOC(I, ui_hand_position(H.get_held_index_of_item(I)))
 			H.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = null
+			CLEAR_SCREEN_LOC(I)
 			H.client.screen -= I

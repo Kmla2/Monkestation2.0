@@ -38,7 +38,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "id"
 	inv_box.icon_full = "template_small"
-	inv_box.screen_loc = ui_id
+	SET_SCREEN_LOC(inv_box, ui_id)
 	inv_box.slot_id = ITEM_SLOT_ID
 	static_inventory += inv_box
 
@@ -47,7 +47,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "head"
 	inv_box.icon_full = "template"
-	inv_box.screen_loc = ui_head
+	SET_SCREEN_LOC(inv_box, ui_head)
 	inv_box.slot_id = ITEM_SLOT_HEAD
 	toggleable_inventory += inv_box
 
@@ -62,12 +62,12 @@
 	using = new /atom/movable/screen/mov_intent(null, src)
 	using.icon = ui_style
 	using.icon_state = (mymob.m_intent == MOVE_INTENT_WALK ? "walking" : "running")
-	using.screen_loc = ui_movi
+	SET_SCREEN_LOC(using, ui_movi)
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_drop_throw
+	SET_SCREEN_LOC(using, ui_drop_throw)
 	static_inventory += using
 
 	build_hand_slots()
@@ -75,38 +75,38 @@
 	using = new /atom/movable/screen/swap_hand(null, src)
 	using.icon = ui_style
 	using.icon_state = "swap_1"
-	using.screen_loc = ui_swaphand_position(owner,1)
+	SET_SCREEN_LOC(using, ui_swaphand_position(owner,1))
 	static_inventory += using
 
 	using = new /atom/movable/screen/swap_hand(null, src)
 	using.icon = ui_style
 	using.icon_state = "swap_2"
-	using.screen_loc = ui_swaphand_position(owner,2)
+	SET_SCREEN_LOC(using, ui_swaphand_position(owner,2))
 	static_inventory += using
 
 	using = new /atom/movable/screen/resist(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_above_intent
+	SET_SCREEN_LOC(using, ui_above_intent)
 	hotkeybuttons += using
 
 	using = new /atom/movable/screen/possessed/toggle(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_inventory
+	SET_SCREEN_LOC(using, ui_inventory)
 	static_inventory += using
 
 	using = new /atom/movable/screen/human/equip(null, src)
 	using.icon = ui_style
-	using.screen_loc = ui_equip_position(mymob)
+	SET_SCREEN_LOC(using, ui_equip_position(mymob))
 	static_inventory += using
 
 	throw_icon = new /atom/movable/screen/throw_catch(null, src)
 	throw_icon.icon = ui_style
-	throw_icon.screen_loc = ui_drop_throw
+	SET_SCREEN_LOC(throw_icon, ui_drop_throw)
 	hotkeybuttons += throw_icon
 
 	rest_icon = new /atom/movable/screen/rest(null, src)
 	rest_icon.icon = ui_style
-	rest_icon.screen_loc = ui_above_movement
+	SET_SCREEN_LOC(rest_icon, ui_above_movement)
 	rest_icon.update_appearance()
 	static_inventory += rest_icon
 
@@ -118,7 +118,7 @@
 
 	pull_icon = new /atom/movable/screen/pull(null, src)
 	pull_icon.icon = ui_style
-	pull_icon.screen_loc = ui_above_intent
+	SET_SCREEN_LOC(pull_icon, ui_above_intent)
 	pull_icon.update_appearance()
 	static_inventory += pull_icon
 
@@ -136,11 +136,11 @@
 	var/mob/living/H = mymob
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			SET_SCREEN_LOC(I, ui_hand_position(H.get_held_index_of_item(I)))
 			H.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = null
+			CLEAR_SCREEN_LOC(I)
 			H.client.screen -= I
 
 /datum/hud/possessed/hidden_inventory_update(mob/viewer)
@@ -152,7 +152,7 @@
 
 	if(screenmob.hud_used.inventory_shown && screenmob.hud_used.hud_shown)
 		if(H.head)
-			H.head.screen_loc = ui_head
+			SET_SCREEN_LOC(H.head, ui_head)
 			screenmob.client.screen += H.head
 	else
 		if(H.head)

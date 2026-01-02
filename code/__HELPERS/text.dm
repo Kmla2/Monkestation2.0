@@ -1183,6 +1183,33 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		else
 			. = ""
 
+
+/proc/extract_e3d_tag(screen_loc)
+	if(!screen_loc)
+		return ""
+	var/char = length(screen_loc)+1
+
+	while(char > 1)
+		var/code = text2ascii(screen_loc, char-1)
+		if(code >= 9 && code <= 13)
+			char--
+		else
+			break
+	return copytext(screen_loc, char)
+
+/proc/modify_e3d_tag(screen_loc, new_tag)
+	if(!screen_loc)
+		return new_tag
+	var/char = length(screen_loc)+1
+
+	while(char > 1)
+		var/code = text2ascii(screen_loc, char-1)
+		if(code >= 9 && code <= 13)
+			char--
+		else
+			break
+	return "[copytext(screen_loc, 1, char)][new_tag]"
+
 /// Removes all non-alphanumerics from the text, keep in mind this can lead to id conflicts
 /proc/sanitize_css_class_name(name)
 	var/static/regex/regex = new(@"[^a-zA-Z0-9]","g")

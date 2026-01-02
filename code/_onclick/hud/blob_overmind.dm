@@ -158,7 +158,7 @@
 	blobpwrdisplay = new /atom/movable/screen(null, src)
 	blobpwrdisplay.name = "blob power"
 	blobpwrdisplay.icon_state = "block"
-	blobpwrdisplay.screen_loc = ui_health
+	SET_SCREEN_LOC(blobpwrdisplay, ui_health)
 	blobpwrdisplay.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	SET_PLANE_EXPLICIT(blobpwrdisplay, ABOVE_HUD_PLANE, owner)
 	infodisplay += blobpwrdisplay
@@ -167,33 +167,33 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/blob/jump_to_node(null, src)
-	using.screen_loc = ui_inventory
+	SET_SCREEN_LOC(using, ui_inventory)
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/jump_to_core(null, src)
-	using.screen_loc = ui_zonesel
+	SET_SCREEN_LOC(using, ui_zonesel)
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/blobbernaut(null, src)
-	using.screen_loc = ui_belt
+	SET_SCREEN_LOC(using, ui_belt)
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/resource_blob(null, src)
-	using.screen_loc = ui_back
+	SET_SCREEN_LOC(using, ui_back)
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/node_blob(null, src)
-	using.screen_loc = ui_hand_position(2)
+	SET_SCREEN_LOC(using, ui_hand_position(2))
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/factory_blob(null, src)
-	using.screen_loc = ui_hand_position(1)
+	SET_SCREEN_LOC(using, ui_hand_position(1))
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/readapt_strain(null, src)
-	using.screen_loc = ui_storage1
+	SET_SCREEN_LOC(using, ui_storage1)
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/relocate_core(null, src)
-	using.screen_loc = ui_storage2
+	SET_SCREEN_LOC(using, ui_storage2)
 	static_inventory += using

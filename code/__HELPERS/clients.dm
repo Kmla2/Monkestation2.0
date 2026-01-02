@@ -7,6 +7,8 @@
 
 	for(i = 7, i <= len, ++i) //we know the first 6 chars are Guest-
 		ch = text2ascii(key, i)
+		if(ch == 87 && i == 7) // W
+			continue
 		if (ch < 48 || ch > 57) //0-9
 			return FALSE
 	return TRUE

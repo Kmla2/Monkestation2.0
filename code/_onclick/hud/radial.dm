@@ -318,16 +318,37 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	current_user = M.client
 	RegisterSignal(current_user, COMSIG_QDELETING, PROC_REF(cleanup_on_logout))
 	//Blank
-	menu_holder = image(icon='icons/effects/effects.dmi',loc=anchor,icon_state="nothing", layer = RADIAL_BACKGROUND_LAYER)
+	if(current_user.connection == "web")
+		// BYOND doesn't network the vis_contents list on screen objects or images
+		// so I'll have to encode it in the icon_state string
+		menu_holder = new /atom/movable
+		menu_holder.icon = 'icons/effects/effects.dmi'
+		menu_holder.screen_loc = "e3d_follow:margin=2;ref=\ref[anchor]"
+		menu_holder.layer = ABOVE_HUD_LAYER
+	else
+		menu_holder = image(icon='icons/effects/effects.dmi',loc=anchor,icon_state="nothing", layer = RADIAL_BACKGROUND_LAYER)
+
 	SET_PLANE_EXPLICIT(menu_holder, ABOVE_HUD_PLANE, M)
 	menu_holder.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 	menu_holder.vis_contents += elements + close_button
-	current_user.images += menu_holder
+
+	if(current_user.connection == "web")
+		var/list/ref_list = list()
+		for(var/thing in menu_holder.vis_contents)
+			ref_list += "\ref[thing]"
+		menu_holder.icon_state = "e3d_vis_contents:[ref_list.Join(",")]"
+		current_user.screen += menu_holder
+	else
+		current_user.images += menu_holder
 
 /datum/radial_menu/proc/hide()
 	if(current_user)
+		if(current_user.connection == "web")
+				current_user.screen -= menu_holder
+			else
+				current_user.images -= menu_holder
+		QDEL_NULL(menu_holder)
 		UnregisterSignal(current_user, COMSIG_QDELETING)
-		current_user.images -= menu_holder
 
 /datum/radial_menu/proc/wait(atom/user, atom/anchor, require_near = FALSE)
 	while (current_user && !finished && !selected_choice)
