@@ -223,7 +223,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(debug_variables, R_NONE, FALSE, "View Variables", "V
 			function handle_dropdown(list) {
 				var value = list.options\[list.selectedIndex].value;
 				if (value !== "") {
-					location.href = value;
+					window.location.href = value;
 				}
 				list.selectedIndex = 0;
 				document.getElementById('filter').focus();

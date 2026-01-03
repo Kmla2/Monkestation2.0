@@ -8,6 +8,7 @@
 	max_integrity = 300
 	armor_type = /datum/armor/machinery_igniter
 	resistance_flags = FIRE_PROOF
+	screen_loc = E3D_TYPE_FLOOR
 	processing_flags = NONE
 	var/id = null
 	var/on = FALSE

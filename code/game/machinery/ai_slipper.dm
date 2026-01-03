@@ -8,6 +8,7 @@
 	plane = FLOOR_PLANE
 	max_integrity = 200
 	armor_type = /datum/armor/machinery_ai_slipper
+	screen_loc = E3D_TYPE_FLOOR
 
 	var/uses = 20
 	COOLDOWN_DECLARE(foam_cooldown)

@@ -8,6 +8,7 @@
 
 	maxHealth = 5
 	health = 5
+	e3d_eye_height = 0.1
 	density = FALSE
 	pass_flags = PASSTABLE|PASSGRILLE|PASSMOB
 	mob_size = MOB_SIZE_TINY

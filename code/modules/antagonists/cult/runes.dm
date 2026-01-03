@@ -38,6 +38,7 @@ Runes can either be invoked by one's self or with many different cultists. Each 
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = SIGIL_LAYER
 	color = RUNE_COLOR_RED
+	screen_loc = E3D_TYPE_FLOOR
 
 	/// The name of the rune to cultists
 	var/cultist_name = "basic rune"

@@ -11,6 +11,7 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 40
 	power_channel = AREA_USAGE_EQUIP
 	req_one_access = list(ACCESS_MEDICAL, ACCESS_COMMAND, ACCESS_SECURITY) //used to control clamps
+	screen_loc = E3D_TYPE_WALLMOUNT
 	processing_flags = NONE
 /// The mount's defib
 	var/obj/item/defibrillator/defib

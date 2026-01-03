@@ -46,6 +46,7 @@
 	/// once our paired turfs are finished with all other shares, do one 100% share
 	/// exists so things like space can ask to take 100% of a tile's gas
 	var/run_later = FALSE
+	var/atmos_e3d_overlay // current batch-overlay
 
 	///gas IDs of current active gas overlays
 	var/list/atmos_overlay_types
@@ -185,6 +186,23 @@
 
 	UNSETEMPTY(new_overlay_types)
 	src.atmos_overlay_types = new_overlay_types
+
+	// oh boy hope this doesn't break, i don't want to read and write any atmos code if possible [WEBCLIENT ATMOS WARNING000]
+	// BYOND webclient does not send vis_contents for turfs - find another way.
+	if(!LAZYLEN(new_overlay_types) && atmos_e3d_overlay)
+		cut_overlay(atmos_e3d_overlay)
+		atmos_e3d_overlay = null
+	else if(LAZYLEN(new_overlay_types))
+		var/list/new_overlay_refs = list()
+		for(var/overlay in new_overlay_types)
+			new_overlay_refs += "\ref[overlay]"
+		e3d_overlay_image.icon_state = "e3d_gases:[new_overlay_refs.Join(",")]"
+		var/new_e3d_overlay = e3d_overlay_image.appearance
+		if(new_e3d_overlay != atmos_e3d_overlay)
+			if(atmos_e3d_overlay)
+				cut_overlay(atmos_e3d_overlay)
+			add_overlay(new_e3d_overlay)
+			src.atmos_e3d_overlay = new_e3d_overlay
 
 /proc/typecache_of_gases_with_no_overlays()
 	. = list()

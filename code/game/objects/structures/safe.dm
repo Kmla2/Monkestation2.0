@@ -119,7 +119,7 @@ FLOOR SAFES
 		data["contents"] = contents_names
 		for(var/obj/jewel in contents)
 			contents_names[++contents_names.len] = list("name" = jewel.name, "sprite" = jewel.icon_state)
-			user << browse_rsc(icon(jewel.icon, jewel.icon_state), "[jewel.icon_state].png")
+			browse_rsc_web(user, icon(jewel.icon, jewel.icon_state), "[jewel.icon_state].png")
 
 	return data
 

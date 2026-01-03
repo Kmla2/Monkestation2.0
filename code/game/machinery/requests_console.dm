@@ -19,6 +19,8 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.15
 	max_integrity = 300
 	armor_type = /datum/armor/machinery_requests_console
+	screen_loc = E3D_TYPE_WALLMOUNT
+
 	/// Reference to our area
 	var/area/area
 	/// Is autonaming by area on?

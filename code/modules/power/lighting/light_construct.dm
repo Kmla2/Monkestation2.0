@@ -8,6 +8,7 @@
 	plane = GAME_PLANE_UPPER
 	max_integrity = 200
 	armor_type = /datum/armor/structure_light_construct
+	screen_loc = E3D_TYPE_LIGHTFIXTURE // let em have their funny wall light still [WEBCLIENT FRAME WARNING000]
 
 	///Light construction stage (LIGHT_CONSTRUCT_EMPTY, LIGHT_CONSTRUCT_WIRED, LIGHT_CONSTRUCT_CLOSED)
 	var/stage = LIGHT_CONSTRUCT_EMPTY

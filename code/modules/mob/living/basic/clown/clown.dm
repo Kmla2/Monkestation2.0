@@ -171,8 +171,8 @@
 	response_harm_simple = "try to shut up"
 	maxHealth = 150
 	health = 150
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	speed = 3
 	melee_damage_lower = 5
 	attack_verb_continuous = "YA-HONKs"
@@ -203,8 +203,8 @@
 	response_harm_simple = "anger"
 	maxHealth = 400
 	health = 400
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	speed = 2
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -335,8 +335,8 @@
 	response_harm_simple = "squish into"
 	maxHealth = 130
 	health = 130
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	speed = -5
 	melee_damage_lower = 10
 	melee_damage_upper = 20

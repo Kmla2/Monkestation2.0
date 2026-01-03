@@ -9,6 +9,7 @@
 	density = FALSE
 	layer = LOW_ITEM_LAYER //same as the built tube
 	anchored = FALSE
+	screen_loc = E3D_TYPE_FLOOR
 	var/flipped = FALSE
 	var/build_type = /obj/structure/transit_tube
 	var/flipped_build_type

@@ -21,6 +21,7 @@ GLOBAL_DATUM_INIT(status_font, /datum/font, new /datum/font/tiny_unicode/size_12
 	verb_exclaim = "beeps"
 	density = FALSE
 	layer = ABOVE_WINDOW_LAYER
+	screen_loc = E3D_TYPE_WALLMOUNT
 
 	// We store overlays as keys, so multiple displays can use the same object safely
 	/// String key we use to index the first effect overlay displayed on us

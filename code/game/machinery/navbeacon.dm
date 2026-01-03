@@ -11,6 +11,7 @@
 	max_integrity = 500
 	armor_type = /datum/armor/machinery_navbeacon
 	circuit = /obj/item/circuitboard/machine/navbeacon
+	screen_loc = E3D_TYPE_FLOOR
 
 	/// true if controls are locked
 	var/controls_locked = TRUE

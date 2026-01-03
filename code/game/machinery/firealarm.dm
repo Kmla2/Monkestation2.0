@@ -27,6 +27,7 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.02
 	power_channel = AREA_USAGE_ENVIRON
 	resistance_flags = FIRE_PROOF
+	screen_loc = E3D_TYPE_WALLMOUNT
 
 	light_power = 1
 	light_outer_range = 1.6

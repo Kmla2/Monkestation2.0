@@ -10,6 +10,7 @@
 	density = FALSE
 	pressure_resistance = 5*ONE_ATMOSPHERE
 	max_integrity = 200
+	screen_loc = E3D_TYPE_FLOOR
 	var/obj/pipe_type = /obj/structure/disposalpipe/segment
 	var/pipename
 
@@ -32,6 +33,7 @@
 		setDir(_dir)
 
 	pipename = initial(pipe_type.name)
+	screen_loc = initial(pipe_type.screen_loc)
 
 	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, PROC_REF(AfterRotation)))
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)

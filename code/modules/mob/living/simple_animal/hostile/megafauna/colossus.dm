@@ -42,8 +42,8 @@
 	speed = 10
 	move_to_delay = 10
 	ranged = TRUE
-	pixel_x = -32
-	base_pixel_x = -32
+	pixel_w = -32
+	base_pixel_w = -32
 	maptext_height = 96
 	maptext_width = 96
 	del_on_death = TRUE

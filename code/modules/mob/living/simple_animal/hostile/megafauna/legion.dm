@@ -49,7 +49,12 @@
 	achievement_type = /datum/award/achievement/boss/legion_kill
 	crusher_achievement_type = /datum/award/achievement/boss/legion_crusher
 	score_achievement_type = /datum/award/score/legion_score
-	SET_BASE_PIXEL(-32, -16)
+
+	base_pixel_w = -32
+	base_pixel_z = -16
+	pixel_w = -32
+	pixel_z = -16
+
 	maptext_height = 96
 	maptext_width = 96
 	loot = list(/obj/item/stack/sheet/bone = 3)
@@ -86,8 +91,8 @@
 
 /mob/living/simple_animal/hostile/megafauna/legion/medium
 	icon = 'icons/mob/simple/lavaland/64x64megafauna.dmi'
-	pixel_x = -16
-	pixel_y = -8
+	pixel_w = -16
+	pixel_z = -8
 	maxHealth = 350
 	size = LEGION_MEDIUM
 
@@ -103,8 +108,8 @@
 /mob/living/simple_animal/hostile/megafauna/legion/small
 	icon = 'icons/mob/simple/lavaland/lavaland_monsters.dmi'
 	icon_state = "mega_legion"
-	pixel_x = 0
-	pixel_y = 0
+	pixel_w = 0
+	pixel_z = 0
 	maxHealth = 200
 	size = LEGION_SMALL
 

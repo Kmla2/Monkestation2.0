@@ -10,6 +10,7 @@
 	density = FALSE
 	circuit = null
 	light_power = 0
+	screen_loc = E3D_TYPE_WALLMOUNT
 	/// The kind of wallframe that this telescreen drops
 	var/frame_type = /obj/item/wallframe/telescreen
 	projectiles_pass_chance = 100

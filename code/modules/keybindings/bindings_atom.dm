@@ -30,6 +30,12 @@
 	//turn without moving while using the movement lock key, unless something wants to ignore it and move anyway
 	if(user.movement_locked && !(SEND_SIGNAL(src, COMSIG_MOVABLE_KEYBIND_FACE_DIR, movement_dir) & COMSIG_IGNORE_MOVEMENT_LOCK))
 		keybind_face_direction(movement_dir)
+
+	// possible error here, small changes. put it up in the checks if this breaks [WEBCLIENT MOVEMENT WARNING000]
+	// Rotate the movement direction by the camera angle
+	if(movement_dir && user.e3d_angle)
+		movement_dir = turn(movement_dir, round(user.e3d_angle, 45))
+
 	// Null check cause of the signal above
 	else if(user)
 		user.Move(get_step(src, movement_dir), movement_dir)

@@ -16,6 +16,7 @@
 	armor_type = /datum/armor/structure_grille
 	max_integrity = 50
 	integrity_failure = 0.4
+	screen_loc = E3D_TYPE_FLOOR
 	var/rods_type = /obj/item/stack/rods
 	var/rods_amount = 2
 

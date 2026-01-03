@@ -62,8 +62,9 @@
 	smoothing_groups = SMOOTH_GROUP_ALIEN_RESIN
 	canSmoothWith = SMOOTH_GROUP_ALIEN_RESIN
 	max_integrity = 200
-	var/resintype = null
 	can_atmos_pass = ATMOS_PASS_DENSITY
+	screen_loc = E3D_TYPE_SMOOTHWALL
+	var/resintype = null
 
 
 /obj/structure/alien/resin/Initialize(mapload)
@@ -144,6 +145,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_ALIEN_WEEDS + SMOOTH_GROUP_ALIEN_RESIN
 	canSmoothWith = SMOOTH_GROUP_ALIEN_WEEDS + SMOOTH_GROUP_WALLS
+	screen_loc = E3D_TYPE_FLOOR
 	///the range of the weeds going to be affected by the node
 	var/node_range = NODERANGE
 	///the parent node that will determine if we grow or die

@@ -36,8 +36,8 @@ Difficulty: Medium
 	ranged = TRUE
 	ranged_cooldown_time = 1.6 SECONDS
 	rapid_melee = 5 // starts fast because the saw's closed. gets reduced appropriately when extended, see their transform_weapon ability
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	crusher_loot = list(/obj/item/melee/cleaving_saw, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/crusher_trophy/miner_eye, /obj/item/disk/design_disk/modkit_disc/blood_drunk_group)
 	loot = list(/obj/item/melee/cleaving_saw, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/disk/design_disk/modkit_disc/blood_drunk_group)
 	wander = FALSE

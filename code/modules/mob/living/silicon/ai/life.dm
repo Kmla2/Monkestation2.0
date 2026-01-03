@@ -80,7 +80,7 @@
 	set_invis_see(initial(see_invisible))
 	set_sight(initial(sight))
 	if(aiRestorePowerRoutine)
-		clear_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		clear_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS|E3D_SEE_ZOOM)
 
 	if(see_override)
 		set_invis_see(see_override)

@@ -22,7 +22,7 @@
 	status_flags = CANSTUN|CANPUSH
 	istate = ISTATE_HARM|ISTATE_BLOCKING //so we always get pushed instead of trying to swap
 	forced_interaction_mode = /datum/interaction_mode/no_interaction/nopassthrough //a nothingburger interact mode, which forces the istate above for the rest of time
-	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS
+	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | E3D_SEE_ZOOM
 	hud_type = /datum/hud/ai
 	med_hud = DATA_HUD_MEDICAL_BASIC
 	sec_hud = DATA_HUD_SECURITY_BASIC

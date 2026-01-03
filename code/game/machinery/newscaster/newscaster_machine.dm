@@ -13,6 +13,8 @@
 	max_integrity = 200
 	integrity_failure = 0.25
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON|INTERACT_MACHINE_SET_MACHINE|INTERACT_MACHINE_REQUIRES_LITERACY
+	screen_loc = E3D_TYPE_WALLMOUNT
+
 	///Reference to the currently logged in user.
 	var/datum/bank_account/current_user
 	///Name of the logged in user.
@@ -176,7 +178,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 	var/list/wanted_info = list()
 	if(GLOB.news_network.wanted_issue)
 		if(GLOB.news_network.wanted_issue.img)
-			user << browse_rsc(GLOB.news_network.wanted_issue.img, "wanted_photo.png")
+			browse_rsc_web(user, GLOB.news_network.wanted_issue.img, "wanted_photo.png")
 		wanted_info = list(list(
 			"active" = GLOB.news_network.wanted_issue.active,
 			"criminal" = GLOB.news_network.wanted_issue.criminal,
@@ -192,7 +194,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			var/photo_ID = null
 			var/list/comment_list
 			if(feed_message.img)
-				user << browse_rsc(feed_message.img, "tmp_photo[feed_message.message_ID].png")
+				browse_rsc_web(user, feed_message.img, "tmp_photo[feed_message.message_ID].png")
 				photo_ID = "tmp_photo[feed_message.message_ID].png"
 			for(var/datum/feed_comment/comment_message as anything in feed_message.comments)
 				comment_list += list(list(

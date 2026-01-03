@@ -16,6 +16,7 @@
 	req_access = list(ACCESS_SECURITY)
 	text_color = "#F44"
 	header_text_color = "#F88"
+	screen_loc = E3D_TYPE_WALLMOUNT
 
 	var/id = null // id of linked machinery/lockers
 

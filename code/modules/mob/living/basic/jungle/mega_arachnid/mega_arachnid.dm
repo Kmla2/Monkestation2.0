@@ -13,8 +13,8 @@
 	maxHealth = 300
 	health = 300
 
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 
 	habitable_atmos = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	faction = list(FACTION_JUNGLE)

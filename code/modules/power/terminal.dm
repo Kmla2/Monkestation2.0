@@ -8,6 +8,7 @@
 	icon_state = "term"
 	desc = "It's an underfloor wiring terminal, used to draw power from the grid."
 	layer = WIRE_TERMINAL_LAYER //a bit above wires
+	screen_loc = E3D_TYPE_FLOOR
 	var/obj/machinery/power/master = null
 
 

@@ -7,6 +7,7 @@
 	density = FALSE
 	max_integrity = 200
 	integrity_failure = 0.25
+	screen_loc = E3D_TYPE_WALLMOUNT
 	var/obj/item/extinguisher/stored_extinguisher
 	var/opened = FALSE
 

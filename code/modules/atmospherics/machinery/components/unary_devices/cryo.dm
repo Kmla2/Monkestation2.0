@@ -83,6 +83,7 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 1.5
 	flags_1 = PREVENT_CLICK_UNDER_1
 	interaction_flags_mouse_drop = NEED_DEXTERITY
+	screen_loc = E3D_TYPE_BILLBOARD
 
 	var/autoeject = TRUE
 	var/volume = 100

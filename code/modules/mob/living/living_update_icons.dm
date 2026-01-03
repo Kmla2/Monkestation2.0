@@ -22,6 +22,8 @@
 	var/changed = FALSE
 
 	if(lying_angle != lying_prev && rotate_on_lying)
+		if(lying_prev) // not worth it to rework proc to have everthing nice, this is a webclient not a full code rework [WEBCLIENT LYING WARNING000]
+			ntransform.Translate(0, 6)
 		changed = TRUE
 		if(lying_angle && lying_prev == 0)
 			if(translate)

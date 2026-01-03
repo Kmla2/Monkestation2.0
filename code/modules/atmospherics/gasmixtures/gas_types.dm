@@ -293,6 +293,7 @@
 	plane = ABOVE_GAME_PLANE
 	appearance_flags = TILE_BOUND
 	vis_flags = NONE
+	screen_loc = E3D_TYPE_GAS_OVERLAY
 	// The visual offset we are "on".
 	// Can't use the tradtional loc because we are stored in nullspace, and we can't set plane before init because of the helping that SET_PLANE_EXPLICIT does IN init
 	var/plane_offset = 0

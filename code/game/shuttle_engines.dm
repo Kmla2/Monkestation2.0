@@ -17,6 +17,7 @@
 	anchored = TRUE
 	use_power = NO_POWER_USE
 	circuit = /obj/item/circuitboard/machine/engine
+	screen_loc = E3D_TYPE_FLOOR
 
 	///How well the engine affects the ship's speed.
 	var/engine_power = 1

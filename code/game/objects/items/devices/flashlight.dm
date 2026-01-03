@@ -359,6 +359,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	flags_1 = CONDUCT_1
 	custom_materials = null
+	screen_loc = E3D_TYPE_BILLBOARD
 	on = TRUE
 
 // green-shaded desk lamp

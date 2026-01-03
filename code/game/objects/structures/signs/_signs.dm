@@ -8,6 +8,8 @@
 	max_integrity = 100
 	armor_type = /datum/armor/structure_sign
 	resistance_flags = FLAMMABLE
+	screen_loc = E3D_TYPE_WALLMOUNT_SIGN
+
 	///Determines if a sign is unwrenchable.
 	var/buildable_sign = TRUE
 	///This determines if you can select this sign type when using a pen on a sign backing. False by default, set to true per sign type to override.

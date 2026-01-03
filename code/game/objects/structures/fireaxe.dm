@@ -8,6 +8,7 @@
 	armor_type = /datum/armor/structure_fireaxecabinet
 	max_integrity = 150
 	integrity_failure = 0.33
+	screen_loc = E3D_TYPE_WALLMOUNT
 	/// Do we need to be unlocked to be opened.
 	var/locked = TRUE
 	/// Are we opened, can someone take the held item out.

@@ -8,6 +8,7 @@
 	density = FALSE
 	anchored = TRUE
 	max_integrity = 150
+	screen_loc = E3D_TYPE_WALLMOUNT
 	/// Current number of a pinned notices
 	var/notices = 0
 

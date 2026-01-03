@@ -27,6 +27,8 @@
 
 	set_dir_on_move = FALSE
 
+	screen_loc = E3D_TYPE_BILLBOARD
+
 	var/min_temperature = T20C //actual temperature will be defined by RefreshParts()
 	var/max_temperature = T20C //actual temperature will be defined by RefreshParts()
 	var/target_temperature = T20C

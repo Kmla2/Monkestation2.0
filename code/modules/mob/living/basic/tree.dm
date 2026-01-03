@@ -18,8 +18,8 @@
 	response_disarm_simple = "push"
 
 	mob_size = MOB_SIZE_LARGE
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 
 	speed = 1
 	maxHealth = 250

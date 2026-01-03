@@ -11,6 +11,7 @@
 	armor_type = /datum/armor/machinery_meter
 	greyscale_config = /datum/greyscale_config/meter
 	greyscale_colors = COLOR_GRAY
+	screen_loc = E3D_TYPE_FLOOR
 	///The pipe we are attaching to
 	var/obj/machinery/atmospherics/pipe/target
 	///The piping layer of the target

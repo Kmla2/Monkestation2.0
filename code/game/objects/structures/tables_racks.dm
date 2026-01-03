@@ -29,6 +29,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TABLES
 	canSmoothWith = SMOOTH_GROUP_TABLES
+	screen_loc = E3D_TYPE_TABLE
 	///TRUE if the table can be climbed on and have living mobs placed on it normally, FALSE otherwise
 	var/climbable = TRUE
 	var/frame = /obj/structure/table_frame
@@ -1097,6 +1098,7 @@
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite it's density.
 	max_integrity = 20
+	screen_loc = E3D_TYPE_TABLE
 /*
 /obj/structure/rack/skeletal
 	name = "skeletal minibar"

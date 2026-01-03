@@ -19,6 +19,7 @@
 	warmup_time = 3 SECONDS
 	circuit = /obj/item/circuitboard/computer/bountypad
 	interface_type = "CivCargoHoldTerminal"
+	screen_loc = E3D_TYPE_WALLMOUNT
 	///Typecast of an inserted, scanned ID card inside the console, as bounties are held within the ID card.
 	var/obj/item/card/id/inserted_scan_id
 

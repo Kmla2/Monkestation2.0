@@ -3,6 +3,7 @@
 	desc = "The finest in spring-loaded piston toy technology, now on a space station near you."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mass_driver"
+	screen_loc = E3D_TYPE_FLOOR
 	var/power = 1
 	var/code = 1
 	var/id = 1

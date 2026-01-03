@@ -37,8 +37,8 @@ Warning the icebox version is being overridden in monkestation/code/modules/mob/
 	speed = 6
 	move_to_delay = 6
 	ranged = TRUE
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	gps_name = "Berserk Signal"
 	loot = list()
 	butcher_results = list()

@@ -14,8 +14,8 @@
 	icon_dead = "Fugu_dead"
 	icon_gib = "syndicate_gib"
 	health_doll_icon = "Fugu0"
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	status_flags = NONE
 	gold_core_spawnable = HOSTILE_SPAWN
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST

@@ -129,8 +129,8 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	resistance_flags = INDESTRUCTIBLE
 	icon = 'icons/obj/lavaland/tumor.dmi'
 	icon_state = "tumor"
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	light_color = COLOR_SOFT_RED
 	light_outer_range = 3
 	anchored = TRUE

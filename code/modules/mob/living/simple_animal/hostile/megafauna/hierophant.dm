@@ -506,6 +506,7 @@ Difficulty: Hard
 	name = "vortex energy"
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
+	screen_loc = E3D_TYPE_FLOOR
 	var/mob/living/caster //who made this, anyway
 
 /obj/effect/temp_visual/hierophant/Initialize(mapload, new_caster)
@@ -534,6 +535,7 @@ Difficulty: Hard
 	smoothing_groups = SMOOTH_GROUP_HIERO_WALL
 	canSmoothWith = SMOOTH_GROUP_HIERO_WALL
 	light_outer_range = MINIMUM_USEFUL_LIGHT_RANGE
+	screen_loc = E3D_TYPE_SMOOTHWALL
 	duration = 100
 
 /obj/effect/temp_visual/hierophant/wall/Initialize(mapload, new_caster)
@@ -626,6 +628,7 @@ Difficulty: Hard
 /obj/effect/temp_visual/hierophant/telegraph
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "hierophant_telegraph"
+	screen_loc = E3D_TYPE_FLOOR
 	pixel_x = -32
 	pixel_y = -32
 	duration = 3
@@ -745,6 +748,7 @@ Difficulty: Hard
 	icon_state = "hierophant_tele_off"
 	light_outer_range = 2
 	layer = LOW_OBJ_LAYER
+	screen_loc = E3D_TYPE_FLOOR
 	anchored = TRUE
 
 /obj/effect/hierophant/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)

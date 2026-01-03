@@ -29,6 +29,7 @@
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
 	interaction_flags_click = ALLOW_SILICON_REACH
 	processing_flags = START_PROCESSING_MANUALLY
+	screen_loc = E3D_TYPE_WALLMOUNT
 
 	///Range of the light emitted when on
 	var/light_on_inner_range = 0.5

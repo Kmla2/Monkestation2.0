@@ -8,6 +8,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	icon_state = "pressureplate"
 	layer = LOW_OBJ_LAYER
+	screen_loc = E3D_TYPE_FLOOR
+
 	var/trigger_mob = TRUE
 	var/trigger_item = FALSE
 	var/specific_item = null

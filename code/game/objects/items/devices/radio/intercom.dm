@@ -8,6 +8,7 @@
 	dog_fashion = null
 	unscrewed = FALSE
 	item_flags = NO_BLOOD_ON_ITEM
+	screen_loc = E3D_TYPE_WALLMOUNT
 
 	overlay_speaker_idle = "intercom_s"
 	overlay_speaker_active = "intercom_recieve"

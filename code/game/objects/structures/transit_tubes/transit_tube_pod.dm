@@ -7,6 +7,7 @@
 	animate_movement = FORWARD_STEPS
 	anchored = TRUE
 	density = TRUE
+	screen_loc = E3D_TYPE_FLOOR
 	var/moving = FALSE
 	var/datum/gas_mixture/air_contents = new()
 	var/occupied_icon_state = "pod_occupied"

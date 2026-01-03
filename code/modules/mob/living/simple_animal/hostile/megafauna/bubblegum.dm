@@ -53,8 +53,8 @@ Difficulty: Hard
 	rapid_melee = 8 // every 1/4 second
 	melee_queue_distance = 20 // as far as possible really, need this because of blood warp
 	ranged = TRUE
-	pixel_x = -32
-	base_pixel_x = -32
+	pixel_w = -32
+	base_pixel_w = -32
 	maptext_height = 96
 	maptext_width = 96
 	del_on_death = TRUE

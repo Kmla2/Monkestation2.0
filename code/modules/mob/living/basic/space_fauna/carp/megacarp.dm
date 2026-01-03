@@ -16,8 +16,8 @@
 	health_doll_icon = "megacarp"
 	maxHealth = 20
 	health = 20
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	mob_size = MOB_SIZE_LARGE
 	obj_damage = 80
 	cell_line = CELL_LINE_TABLE_MEGACARP

@@ -6,6 +6,7 @@
 	desc = "A large machine releasing a constant gust of air."
 	anchored = TRUE
 	density = TRUE
+	screen_loc = E3D_TYPE_FLOOR
 	var/buildstacktype = /obj/item/stack/sheet/iron
 	var/buildstackamount = 5
 	can_atmos_pass = ATMOS_PASS_NO

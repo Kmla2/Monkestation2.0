@@ -706,6 +706,7 @@
 	can_crush = FALSE
 	flags_1 = ON_BORDER_1
 	can_atmos_pass = ATMOS_PASS_PROC
+	screen_loc = E3D_TYPE_EDGEFIREDOOR
 
 /obj/machinery/door/firedoor/border_only/closed
 	icon_state = "door_closed"
@@ -786,6 +787,7 @@
 	base_icon_state = "frame"
 	anchored = FALSE
 	density = TRUE
+	screen_loc = E3D_TYPE_BASICWALL
 	var/constructionStep = CONSTRUCTION_NO_CIRCUIT
 	var/reinforced = 0
 

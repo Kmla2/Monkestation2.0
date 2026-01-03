@@ -17,8 +17,8 @@
 	projectiletype = /obj/projectile/leaper
 	projectilesound = 'sound/weapons/pierce.ogg'
 	ranged_cooldown_time = 30
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	layer = LARGE_MOB_LAYER
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	speed = 10
@@ -143,7 +143,11 @@
 	icon_state = "lily_pad"
 	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE
-	SET_BASE_PIXEL(-32, -32)
+
+	base_pixel_w = -32
+	base_pixel_z = -32
+	pixel_w = -32
+	pixel_z = -32
 	duration = 30
 
 /mob/living/simple_animal/hostile/jungle/leaper/Initialize(mapload)

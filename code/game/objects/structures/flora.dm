@@ -272,7 +272,7 @@
 	name = "tree"
 	desc = "A large tree."
 	density = TRUE
-	pixel_x = -16
+	pixel_w = -16
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
 	drag_slowdown = 1.5
@@ -354,8 +354,8 @@
 	desc = "It's seriously hampering your view of the jungle."
 	icon = 'icons/obj/flora/jungletrees.dmi'
 	icon_state = "tree1"
-	pixel_x = -48
-	pixel_y = -20
+	pixel_w = -48
+	pixel_z = -20
 
 /obj/structure/flora/tree/jungle/get_seethrough_map()
 	return SEE_THROUGH_MAP_THREE_X_THREE
@@ -380,8 +380,8 @@
 	icon_state = "tree[rand(1, 6)]"
 
 /obj/structure/flora/tree/jungle/small
-	pixel_y = 0
-	pixel_x = -32
+	pixel_z = 0
+	pixel_w = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
 	icon_state = "tree1"
 
@@ -909,8 +909,8 @@
 /obj/structure/flora/bush/large
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	icon_state = "bush1"
-	pixel_x = -16
-	pixel_y = -12
+	pixel_w = -16
+	pixel_z = -12
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
 
@@ -1024,8 +1024,8 @@
 	name = "pile of large rocks"
 	icon_state = "rocks1"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
-	pixel_x = -16
-	pixel_y = -16
+	pixel_w = -16
+	pixel_z = -16
 	harvest_amount_low = 9
 	harvest_amount_high = 13
 

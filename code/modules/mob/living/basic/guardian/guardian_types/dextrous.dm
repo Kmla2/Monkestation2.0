@@ -93,7 +93,7 @@
 /mob/living/basic/guardian/dextrous/proc/update_inv_internal_storage()
 	if(isnull(internal_storage) || isnull(client) || !hud_used?.hud_shown)
 		return
-	internal_storage.screen_loc = ui_id
+	SET_SCREEN_LOC(internal_storage, ui_id)
 	client.screen += internal_storage
 
 /mob/living/basic/guardian/dextrous/regenerate_icons()

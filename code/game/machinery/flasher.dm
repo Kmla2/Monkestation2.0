@@ -9,6 +9,7 @@
 	max_integrity = 250
 	integrity_failure = 0.4
 	damage_deflection = 10
+	screen_loc = E3D_TYPE_WALLMOUNT
 	///The contained flash. Mostly just handles the bulb burning out & needing placement.
 	var/obj/item/assembly/flash/handheld/bulb
 	var/id = null

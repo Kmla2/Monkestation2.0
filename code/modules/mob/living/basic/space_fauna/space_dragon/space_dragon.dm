@@ -38,8 +38,8 @@
 	melee_attack_cooldown = CLICK_CD_MELEE
 	mob_size = MOB_SIZE_HUGE
 	armour_penetration = 75
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_w = -16
+	base_pixel_w = -16
 	maptext_height = 64
 	maptext_width = 64
 	mouse_opacity = MOUSE_OPACITY_ICON

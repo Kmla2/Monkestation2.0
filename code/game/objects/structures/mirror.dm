@@ -24,6 +24,7 @@
 	anchored = TRUE
 	integrity_failure = 0.5
 	max_integrity = 200
+	screen_loc = E3D_TYPE_WALLMOUNT
 	var/list/mirror_options = INERT_MIRROR_OPTIONS
 	var/magical_mirror = FALSE
 
