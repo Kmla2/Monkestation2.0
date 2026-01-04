@@ -37,6 +37,7 @@ const initialState = {
   highlightSettingById: {
     [defaultHighlightSetting.id]: defaultHighlightSetting,
   },
+  logUiScale: 1,
   view: {
     visible: false,
     activeTab: SETTINGS_TABS[0].id,

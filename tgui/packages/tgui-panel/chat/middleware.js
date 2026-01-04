@@ -192,6 +192,10 @@ export const chatMiddleware = (store) => {
 
       return;
     }
+    if (type === 'gainPointerLock' || type === 'losePointerLock') {
+      next(action);
+      return chatRenderer.updateClip(type === 'gainPointerLock');
+    }
     if (type === 'roundrestart') {
       // Save chat as soon as possible
       saveChatToStorage(store);

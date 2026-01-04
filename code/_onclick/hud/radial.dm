@@ -324,7 +324,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		menu_holder = new /atom/movable
 		menu_holder.icon = 'icons/effects/effects.dmi'
 		menu_holder.screen_loc = "e3d_follow:margin=2;ref=\ref[anchor]"
-		menu_holder.layer = ABOVE_HUD_LAYER
+		menu_holder.layer = ABOVE_HUD_PLANE
 	else
 		menu_holder = image(icon='icons/effects/effects.dmi',loc=anchor,icon_state="nothing", layer = RADIAL_BACKGROUND_LAYER)
 
@@ -344,9 +344,9 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu/proc/hide()
 	if(current_user)
 		if(current_user.connection == "web")
-				current_user.screen -= menu_holder
-			else
-				current_user.images -= menu_holder
+			current_user.screen -= menu_holder
+		else
+			current_user.images -= menu_holder
 		QDEL_NULL(menu_holder)
 		UnregisterSignal(current_user, COMSIG_QDELETING)
 

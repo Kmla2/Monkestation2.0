@@ -14,7 +14,7 @@ export const Notifications = (props) => {
 const NotificationsItem = (props) => {
   const { rightSlot, children } = props;
   return (
-    <Flex align="center" className="Notification">
+    <Flex align="center" className="Notification clip-include">
       <Flex.Item className="Notification__content" grow={1}>
         {children}
       </Flex.Item>

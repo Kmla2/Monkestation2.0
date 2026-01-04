@@ -9,6 +9,7 @@ import { Box, Tabs, Flex, Button } from 'tgui/components';
 import { changeChatPage, addChatPage } from './actions';
 import { selectChatPages, selectCurrentChatPage } from './selectors';
 import { openChatSettings } from '../settings/actions';
+import { useGame } from '../game';
 
 const UnreadCountWidget = ({ value }) => (
   <Box
@@ -29,31 +30,37 @@ export const ChatTabs = (props, context) => {
   const pages = useSelector(context, selectChatPages);
   const currentPage = useSelector(context, selectCurrentChatPage);
   const dispatch = useDispatch(context);
+  const game = useGame(context);
   return (
     <Flex align="center">
       <Flex.Item>
         <Tabs textAlign="center">
-          {pages.map((page) => (
-            <Tabs.Tab
-              key={page.id}
-              selected={page === currentPage}
-              rightSlot={
-                !page.hideUnreadCount &&
-                page.unreadCount > 0 && (
-                  <UnreadCountWidget value={page.unreadCount} />
-                )
-              }
-              onClick={() =>
-                dispatch(
-                  changeChatPage({
-                    pageId: page.id,
-                  }),
-                )
-              }
-            >
-              {page.name}
-            </Tabs.Tab>
-          ))}
+          {pages.map(
+            (page) =>
+              (!game.pointerLockState ||
+                page === currentPage ||
+                page.unreadCount > 0) && (
+                <Tabs.Tab
+                  key={page.id}
+                  selected={page === currentPage}
+                  rightSlot={
+                    !page.hideUnreadCount &&
+                    page.unreadCount > 0 && (
+                      <UnreadCountWidget value={page.unreadCount} />
+                    )
+                  }
+                  onClick={() =>
+                    dispatch(
+                      changeChatPage({
+                        pageId: page.id,
+                      }),
+                    )
+                  }
+                >
+                  {page.name}
+                </Tabs.Tab>
+              ),
+          )}
         </Tabs>
       </Flex.Item>
       <Flex.Item ml={1}>
@@ -66,6 +73,18 @@ export const ChatTabs = (props, context) => {
           }}
         />
       </Flex.Item>
+      {!game.pointerLockState && (
+        <Flex.Item ml={1}>
+          <Button
+            color="transparent"
+            icon="plus"
+            onClick={() => {
+              dispatch(addChatPage());
+              dispatch(openChatSettings());
+            }}
+          />
+        </Flex.Item>
+      )}
     </Flex>
   );
 };

@@ -106,6 +106,12 @@
       return;
     }
 
+    // Webclient
+    if (window.byond) {
+      window.byond.go('byond://' + url);
+      return;
+    }
+
     // Perform a standard call via location.href
     if (url.length < 2048) {
       location.href = 'byond://' + url;
