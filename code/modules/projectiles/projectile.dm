@@ -1065,7 +1065,7 @@
  * - [modifiers][/list]: A list of click parameters used to modify the shot angle.
  */
 /proc/calculate_projectile_angle_and_pixel_offsets(atom/source, atom/target, modifiers)
-	var/angle = mouse_control["e3d-yaw"] ? -text2num(mouse_control["e3d-yaw"]) : 0
+	var/angle = LAZYACCESS(modifiers, "e3d-yaw") ? -text2num(LAZYACCESS(modifiers, "e3d-yaw")) : 0
 	var/p_x = LAZYACCESS(modifiers, ICON_X) ? text2num(LAZYACCESS(modifiers, ICON_X)) : world.icon_size / 2 // ICON_(X|Y) are measured from the bottom left corner of the icon.
 	var/p_y = LAZYACCESS(modifiers, ICON_Y) ? text2num(LAZYACCESS(modifiers, ICON_Y)) : world.icon_size / 2 // This centers the target if modifiers aren't passed.
 
