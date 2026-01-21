@@ -247,15 +247,3 @@
 		// Shuttle reason
 		.["shuttle_emergency_reason"] = SSticker.emergency_reason
 	// monkestation end
-
-/datum/world_topic/webclient_login
-	keyword = "webclient_login_token"
-	require_comms_key = TRUE
-
-/datum/world_topic/webclient_login/Run(list/input)
-	var/token = input["webclient_login_token"]
-	var/info = input["webclient_login_info"]
-	if(fexists(WEBCLIENT_PATCHES))
-		var/result = call(WEBCLIENT_PATCHES, "set_webclient_auth")(token, info)
-		if(result)
-			log_world("webclient_patches error: [result]")

@@ -367,9 +367,6 @@ GLOBAL_VAR(restart_counter)
 /world/Del()
 	QDEL_NULL(Tracy)
 	QDEL_NULL(Debugger)
-
-	if(fexists(WEBCLIENT_PATCHES))
-		call(WEBCLIENT_PATCHES, "remove_webclient_patches")()
 	. = ..()
 
 /world/proc/update_status()

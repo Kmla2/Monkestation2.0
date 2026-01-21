@@ -50,5 +50,3 @@ cp -r monkestation/code/* $1/monkestation/code/
 if [ "$(uname -o)" = "Msys" ]; then
   cp ./*.dll $1/
 fi
-
-cp *webclient_patches.* $1/ || true
