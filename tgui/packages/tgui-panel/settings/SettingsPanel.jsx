@@ -23,7 +23,6 @@ import {
   TextArea,
   Slider,
   NoticeBox,
-  NumberInput,
 } from 'tgui/components';
 import { ChatPageSettings } from '../chat';
 import { clearChat, rebuildChat, saveChatToDisk } from '../chat/actions';
@@ -54,7 +53,7 @@ export const SettingsPanel = (props, context) => {
   return (
     <Stack fill>
       <Stack.Item>
-        <Section fitted fill minHeight="8em" className="clip-include">
+        <Section fitted fill minHeight="8em">
           <Tabs vertical>
             {SETTINGS_TABS.map((tab) => (
               <Tabs.Tab
@@ -86,14 +85,16 @@ export const SettingsPanel = (props, context) => {
 };
 
 export const SettingsGeneral = (props, context) => {
-  const { theme, fontFamily, coloredNames, fontSize, lineHeight, logUiScale } =
-    useSelector(context, selectSettings);
+  const { theme, fontFamily, coloredNames, fontSize, lineHeight } = useSelector(
+    context,
+    selectSettings,
+  );
   const dispatch = useDispatch(context);
   const [freeFont, setFreeFont] = useLocalState('freeFont', false);
   const [editingPanes, setEditingPanes] = useLocalState('freeFont', false);
 
   return (
-    <Section className="clip-include">
+    <Section>
       <LabeledList>
         <LabeledList.Item label="Theme">
           {THEMES.map((THEME) => (
@@ -236,26 +237,6 @@ export const SettingsGeneral = (props, context) => {
             }
           />
         </LabeledList.Item>
-        {'byond' in window && (
-          <LabeledList.Item label="HUD Scale">
-            <NumberInput
-              width="4em"
-              step={0.25}
-              stepPixelSize={15}
-              minValue={-1}
-              maxValue={3}
-              value={logUiScale}
-              format={(value) => Math.round(100 * 2 ** value).toString() + '%'}
-              onDrag={(e, value) =>
-                dispatch(
-                  updateSettings({
-                    logUiScale: value,
-                  }),
-                )
-              }
-            />
-          </LabeledList.Item>
-        )}
       </LabeledList>
       <Divider />
       <Stack fill>

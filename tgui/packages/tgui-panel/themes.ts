@@ -48,14 +48,6 @@ export const setClientTheme = (name) => {
   if (!themeColor) {
     return;
   }
-
-  if (name === 'light' && !('byond' in window)) {
-    document.body.style.background = 'white';
-  }
-  if (name === 'dark' && !('byond' in window)) {
-    document.body.style.background = '#333333';
-  }
-
   return Byond.winset({
     // Main windows
     'infobuttons.background-color': themeColor.BG_BASE,

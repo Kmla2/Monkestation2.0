@@ -13,7 +13,6 @@ const initialState = {
   roundTime: null,
   roundRestartedAt: null,
   connectionLostAt: null,
-  pointerLockState: false,
 };
 
 export const gameReducer = (state = initialState, action) => {
@@ -22,18 +21,6 @@ export const gameReducer = (state = initialState, action) => {
     return {
       ...state,
       roundRestartedAt: meta.now,
-    };
-  }
-  if (type === 'gainPointerLock') {
-    return {
-      ...state,
-      pointerLockState: true,
-    };
-  }
-  if (type === 'losePointerLock') {
-    return {
-      ...state,
-      pointerLockState: false,
     };
   }
   if (type === connectionLost.type) {

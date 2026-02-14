@@ -33,9 +33,6 @@ const logger = createLogger('chatRenderer');
 // -- Now an experimental configurable option
 // const SCROLL_TRACKING_TOLERANCE = 24;
 
-// How long do we display messages for?
-const TEMP_CLIP_DURATION = 10000;
-
 // List of injectable component names to the actual type
 export const TGUI_CHAT_COMPONENTS = {
   Tooltip,
@@ -52,15 +49,6 @@ const findNearestScrollableParent = (startingNode) => {
   const body = document.body;
   let node = startingNode;
   while (node && node !== body) {
-    // Some browsers have thin scrollbars, such as firefox. This solution works
-    // on those browsers but not IE
-    if ('getComputedStyle' in window && node instanceof HTMLElement) {
-      if (getComputedStyle(node).overflowY === 'scroll') return node;
-    }
-
-    // Can't rely on the style either though because sometimes this gets called before the styles load...
-    if (node.className.indexOf('Layout__content--scrollable') >= 0) return node;
-
     // This definitely has a vertical scrollbar, because it reduces
     // scrollWidth of the element. Might not work if element uses
     // overflow: hidden.
@@ -124,7 +112,6 @@ const handleImageError = (e) => {
  * Assigns a "times-repeated" badge to the message.
  */
 const updateMessageBadge = (message) => {
-  // hope this doesn't break [WEBCLIENT MESSAGE WARNING000]
   const { node, times } = message;
   if (!node || !times) {
     // Nothing to update
@@ -154,9 +141,6 @@ class ChatRenderer {
     /** @type {HTMLElement} */
     this.scrollNode = null;
     this.scrollTracking = true;
-    this.currentClip = '';
-    this.pointerLock = false;
-    this.clipRaf = null;
     this.lastScrollHeight = 0;
     this.handleScroll = (type) => {
       const node = this.scrollNode;
@@ -169,9 +153,6 @@ class ChatRenderer {
         Math.abs(height - bottom) <
           selectSettings(globalStore.getState()).scrollTrackingTolerance ||
         this.lastScrollHeight === 0;
-      if (scrollTracking || this.scrollTracking) {
-        this.updateClip();
-      }
       if (scrollTracking !== this.scrollTracking) {
         this.scrollTracking = scrollTracking;
         this.events.emit('scrollTrackingChanged', scrollTracking);
@@ -325,7 +306,6 @@ class ChatRenderer {
     // scrollHeight is always bigger than scrollTop and is
     // automatically clamped to the valid range.
     this.scrollNode.scrollTop = this.scrollNode.scrollHeight;
-    this.updateClip();
   }
 
   changePage(page) {
@@ -708,48 +688,6 @@ class ChatRenderer {
       a.click();
       URL.revokeObjectURL(url);
     }
-  }
-
-  /**
-   *
-   * @param {HTMLElement} elem
-   */
-  tempClip(elem) {
-    if (!('byond' in window)) return;
-    elem.classList.add('clip-include');
-    this.updateClip();
-    clearTimeout(elem.tempClipTimeout);
-    elem.tempClipTimeout = setTimeout(() => {
-      elem.classList.remove('clip-include');
-      this.updateClip();
-    }, TEMP_CLIP_DURATION);
-    this.updateClip();
-  }
-
-  updateClip(pointerLock = null) {
-    if (!('byond' in window) || this.clipRaf !== null) return;
-    if (pointerLock !== null) {
-      this.pointerLock = pointerLock;
-    }
-    this.clipRaf = requestAnimationFrame(() => {
-      this.clipRaf = null;
-      let clipStr = 'none';
-      if (this.scrollTracking) {
-        clipStr = 'path("';
-        for (let elem of document.getElementsByClassName('clip-include')) {
-          let rect = elem.getBoundingClientRect();
-          // Draw a box as an SVG path around every element we want to show
-          clipStr += `M${rect.x.toFixed(2)} ${rect.y}h${rect.width}v${rect.height}h${-rect.width}z`;
-        }
-        clipStr += '")';
-      }
-      if (this.currentClip !== clipStr) {
-        Byond.winset('browseroutput', {
-          'clip-path': clipStr,
-        });
-        this.currentClip = clipStr;
-      }
-    });
   }
 }
 

@@ -42,13 +42,6 @@ img {
   height: 100vh;
 }
 
-body.webclient {
-	background-color: rgba(255,255,255,0.3);
-}
-body.webclient.dark {
-	background-color: rgba(0,0,0,0.3);
-}
-
 #menu {
   display: flex;
   overflow-x: auto;
@@ -120,8 +113,6 @@ body.webclient.dark {
   padding: 0.75em 0.5em;
   overflow-y: auto;
   overflow-x: hidden;
-  width: fit-content;
-	margin-left: auto;
 }
 
 .grid-container {

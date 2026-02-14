@@ -101,7 +101,6 @@
 		if(!alt_hud.apply_to_new_mob(src))
 			alt_hud.hide_from(src, absolute = TRUE)
 
-	e3d_update_client()
 	update_client_colour()
 	update_mouse_pointer()
 	update_ambience_area(get_area(src))

@@ -28,7 +28,7 @@ export const ChatPageSettings = (props, context) => {
   const page = useSelector(context, selectCurrentChatPage);
   const dispatch = useDispatch(context);
   return (
-    <Section className="clip-include">
+    <Section>
       <Stack align="center">
         {!page.isMain && (
           <Stack.Item>
