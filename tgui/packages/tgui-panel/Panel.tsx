@@ -14,13 +14,13 @@ import { PingIndicator } from './ping';
 import { ReconnectButton } from './reconnect';
 import { SettingsPanel, useSettings } from './settings';
 
-export const Panel = (props, context) => {
-  const audio = useAudio(context);
-  const settings = useSettings(context);
-  const game = useGame(context);
+export const Panel = (props) => {
+  const audio = useAudio();
+  const settings = useSettings();
+  const game = useGame();
   if (process.env.NODE_ENV !== 'production') {
     const { useDebug, KitchenSink } = require('tgui/debug');
-    const debug = useDebug(context);
+    const debug = useDebug();
     if (debug.kitchenSink) {
       return <KitchenSink panel />;
     }
@@ -78,7 +78,46 @@ export const Panel = (props, context) => {
   return (
     <Pane theme={settings.theme}>
       <Stack fill vertical>
-        {!('byond' in window) && tabs_thingy}
+        <Stack.Item>
+          <Section fitted>
+            <Stack mr={1} align="center">
+              <Stack.Item grow>
+                <ChatTabs />
+              </Stack.Item>
+              <Stack.Item>
+                <PingIndicator />
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  color="grey"
+                  selected={audio.visible}
+                  icon="music"
+                  tooltip="Music player"
+                  tooltipPosition="bottom-start"
+                  onClick={() => audio.toggle()}
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Button
+                  icon={settings.visible ? 'times' : 'cog'}
+                  selected={settings.visible}
+                  tooltip={
+                    settings.visible ? 'Close settings' : 'Open settings'
+                  }
+                  tooltipPosition="bottom-start"
+                  onClick={() => settings.toggle()}
+                />
+              </Stack.Item>
+            </Stack>
+          </Section>
+        </Stack.Item>
+        {audio.visible && (
+          <Stack.Item>
+            <Section>
+              <NowPlayingWidget />
+            </Section>
+          </Stack.Item>
+        )}
         {settings.visible && (
           <Stack.Item>
             <SettingsPanel />
@@ -86,7 +125,7 @@ export const Panel = (props, context) => {
         )}
         <Stack.Item grow>
           <Section fill fitted position="relative">
-            <Pane.Content scrollable>
+            <Pane.Content scrollable id="chat-pane">
               <ChatPanel lineHeight={settings.lineHeight} />
             </Pane.Content>
             <Notifications>

@@ -321,7 +321,7 @@ Security HUDs! Basic mode shows only the job.
 				if(1)
 					holder = hud_list[IMPSEC_FIRST_HUD]
 					var/icon/IC = icon(icon, icon_state, dir)
-					holder.pixel_y = IC.Height() - world.icon_size
+					holder.pixel_z = IC.Height() - world.icon_size
 					holder.icon_state = current_implant.hud_icon_state
 					set_hud_image_active(IMPSEC_FIRST_HUD)
 					security_slot++
@@ -329,8 +329,8 @@ Security HUDs! Basic mode shows only the job.
 				if(2) //Theoretically if we somehow get multiple sec implants, whatever the most recently implanted implant is will take over the 2nd position
 					holder = hud_list[IMPSEC_SECOND_HUD]
 					var/icon/IC = icon(icon, icon_state, dir)
-					holder.pixel_y = IC.Height() - world.icon_size
-					holder.pixel_x = initial(holder.pixel_x) + 7 //Adds an offset that mirrors the hud blip to the other side of the mob.
+					holder.pixel_z = IC.Height() - world.icon_size
+					holder.pixel_w = initial(holder.pixel_w) + 7 //Adds an offset that mirrors the hud blip to the other side of the mob.
 					holder.icon_state = current_implant.hud_icon_state
 					set_hud_image_active(IMPSEC_SECOND_HUD)
 
@@ -370,6 +370,8 @@ Security HUDs! Basic mode shows only the job.
 			holder.icon_state = "hudparolled"
 		if(WANTED_DISCHARGED)
 			holder.icon_state = "huddischarged"
+		if(WANTED_SEARCH)
+			holder.icon_state = "hudsearch"
 
 	set_hud_image_active(WANTED_HUD)
 
@@ -396,6 +398,8 @@ Diagnostic HUDs!
 
 /mob/living/proc/hud_set_nanite_indicator()
 	var/image/holder = hud_list[NANITE_HUD]
+	if(!holder) // can happen if NANITE_HUD isn't in hud_possible
+		return
 	holder.pixel_z = get_cached_height() - world.icon_size
 	holder.icon_state = null
 	if(HAS_TRAIT(src, TRAIT_NANITE_MONITORING))

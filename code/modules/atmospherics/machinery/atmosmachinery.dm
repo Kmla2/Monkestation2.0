@@ -29,7 +29,7 @@
 	///Bitflag of the initialized directions (NORTH | SOUTH | EAST | WEST)
 	var/initialize_directions = NONE
 	///The color of the pipe
-	var/pipe_color = COLOR_VERY_LIGHT_GRAY
+	var/pipe_color = ATMOS_COLOR_OMNI
 	///What layer the pipe is in (from 1 to 5, default 3)
 	var/piping_layer = PIPING_LAYER_DEFAULT
 	///The flags of the pipe/component (PIPING_ALL_LAYER | PIPING_ONE_PER_TURF | PIPING_DEFAULT_LAYER_ONLY | PIPING_CARDINAL_AUTONORMALIZE)
@@ -151,8 +151,20 @@
 /obj/machinery/atmospherics/proc/destroy_network()
 	return
 
+/**
+ * Turns the machine on/off
+ * Arguments
+ *
+ * * active - the state of the machine
+ */
 /obj/machinery/atmospherics/proc/set_on(active)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(active == on)
+		return
+
 	on = active
+	update_appearance(UPDATE_ICON)
 	SEND_SIGNAL(src, COMSIG_ATMOS_MACHINE_SET_ON, on)
 
 /// This should only be called by SSair as part of the rebuild queue.
@@ -313,7 +325,7 @@
 		return FALSE
 
 	//if the target does not have the same color and it does not have all color connection flag[which allows it to be connected regardless of color] & one of the pipes is not gray[allowing for connection regardless] then we are out
-	if(target.pipe_color != pipe_color && !((target.pipe_flags | pipe_flags) & PIPING_ALL_COLORS) && target.pipe_color != COLOR_VERY_LIGHT_GRAY && pipe_color != COLOR_VERY_LIGHT_GRAY)
+	if(target.pipe_color != pipe_color && !((target.pipe_flags | pipe_flags) & PIPING_ALL_COLORS) && target.pipe_color != ATMOS_COLOR_OMNI && pipe_color != ATMOS_COLOR_OMNI)
 		return FALSE
 
 	return TRUE
@@ -448,7 +460,7 @@
  * Called by wrench_act() before deconstruct()
  * Arguments:
  * * mob_user - the mob doing the act
- * * pressures - it can be passed on from wrench_act(), it's the pressure difference between the enviroment pressure and the pipe internal pressure
+ * * pressures - it can be passed on from wrench_act(), it's the pressure difference between the environment pressure and the pipe internal pressure
  */
 /obj/machinery/atmospherics/proc/unsafe_pressure_release(mob/user, pressures = null)
 	if(!user)
@@ -494,7 +506,7 @@
  * * piping_layer - the piping_layer the device is in, used inside PIPING_LAYER_SHIFT
  * * trinary - if TRUE we also use PIPING_FORWARD_SHIFT on layer 1 and 5 for trinary devices (filters and mixers)
  */
-/obj/machinery/atmospherics/proc/get_pipe_image(iconfile, iconstate, direction, color = COLOR_VERY_LIGHT_GRAY, piping_layer = 3, trinary = FALSE)
+/obj/machinery/atmospherics/proc/get_pipe_image(iconfile, iconstate, direction, color = ATMOS_COLOR_OMNI, piping_layer = 3, trinary = FALSE)
 	var/image/pipe_overlay = image(iconfile, iconstate, dir = direction)
 	pipe_overlay.color = color
 	PIPING_LAYER_SHIFT(pipe_overlay, piping_layer)

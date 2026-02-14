@@ -17,7 +17,7 @@
 /obj/machinery/porta_turret_cover/Destroy()
 	if(parent_turret)
 		parent_turret.cover = null
-		parent_turret.invisibility = 0
+		parent_turret.SetInvisibility(INVISIBILITY_NONE, id=type)
 		parent_turret = null
 	return ..()
 
@@ -42,7 +42,7 @@
 		user.balloon_alert(user, "controls locked")
 		return ITEM_INTERACT_BLOCKING
 
-	multi_tool.set_buffer(parent_turret)
+	multitool_set_buffer(multi_tool, parent_turret)
 	balloon_alert(user, "saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
 
