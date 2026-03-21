@@ -48,6 +48,7 @@ export const setClientTheme = (name) => {
   if (!themeColor) {
     return;
   }
+
   return Byond.winset({
     // Main windows
     'infobuttons.background-color': themeColor.BG_BASE,

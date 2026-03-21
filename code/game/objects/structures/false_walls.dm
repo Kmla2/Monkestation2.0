@@ -12,9 +12,6 @@
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_WALLS
 	can_be_unanchored = FALSE
-	can_atmos_pass = ATMOS_PASS_DENSITY
-	rad_insulation = RAD_MEDIUM_INSULATION
-	material_flags = MATERIAL_EFFECTS
 	screen_loc = E3D_TYPE_FALSEWALL
 	///This variable is used to preserve real_wall if the false wall is deleted via being bolted down instead of actually destroyed.
 	var/bolting_back_down = FALSE

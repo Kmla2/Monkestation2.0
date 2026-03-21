@@ -247,3 +247,4 @@
 		// Shuttle reason
 		.["shuttle_emergency_reason"] = SSticker.emergency_reason
 	// monkestation end
+
