@@ -129,9 +129,8 @@
 			attacking_item.play_tool_sound(src)
 			if(attacking_item.use_tool(src, user, 40))
 				to_chat(user, span_notice("You unsecure the button frame."))
-				transfer_fingerprints_to(new /obj/item/wallframe/button(get_turf(src)))
 				playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-				qdel(src)
+				deconstruct(src)
 
 		update_appearance()
 		return
@@ -192,7 +191,7 @@
 	if(!initialized_button)
 		setup_device()
 	add_fingerprint(user)
-	play_click_sound("button")
+	play_click_sound(SFX_BUTTON)
 	if(panel_open)
 		if(device || board)
 			if(device)
@@ -238,6 +237,12 @@
 	if(device)
 		device.pulsed(user)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_BUTTON_PRESSED, src)
+
+/obj/machinery/button/on_deconstruction(disassembled)
+	var/obj/item/wallframe/button/dropped_frame = new /obj/item/wallframe/button(drop_location())
+	transfer_fingerprints_to(dropped_frame)
+	board = null
+	device = null
 
 /obj/machinery/button/door
 	name = "door button"
