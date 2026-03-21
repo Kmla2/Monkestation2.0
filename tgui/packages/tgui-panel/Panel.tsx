@@ -29,55 +29,6 @@ export function Panel(props) {
   useChatPersistence();
   useKeepAlive();
 
-  const tabs_thingy = (
-    <>
-      <Stack.Item>
-        <Section fitted className="clip-include">
-          <Stack mr={1} align="center">
-            <Stack.Item grow={game.pointerLockState ? 0 : 1} overflowX="auto">
-              <ChatTabs />
-            </Stack.Item>
-            <Stack.Item>
-              <PingIndicator />
-            </Stack.Item>
-            {!game.pointerLockState && (
-              <>
-                <Stack.Item>
-                  <Button
-                    color="grey"
-                    selected={audio.visible}
-                    icon="music"
-                    tooltip="Music player"
-                    tooltipPosition="bottom-start"
-                    onClick={() => audio.toggle()}
-                  />
-                </Stack.Item>
-                <Stack.Item>
-                  <Button
-                    icon={settings.visible ? 'times' : 'cog'}
-                    selected={settings.visible}
-                    tooltip={
-                      settings.visible ? 'Close settings' : 'Open settings'
-                    }
-                    tooltipPosition="bottom-start"
-                    onClick={() => settings.toggle()}
-                  />
-                </Stack.Item>
-              </>
-            )}
-          </Stack>
-        </Section>
-      </Stack.Item>
-      {audio.visible && (
-        <Stack.Item>
-          <Section className="clip-include">
-            <NowPlayingWidget />
-          </Section>
-        </Stack.Item>
-      )}
-    </>
-  );
-
   return (
     <Pane theme={settings.theme} canSuspend={false}>
       <Stack fill vertical>
@@ -145,7 +96,6 @@ export function Panel(props) {
             </Notifications>
           </Section>
         </Stack.Item>
-        {'byond' in window && tabs_thingy}
       </Stack>
     </Pane>
   );
