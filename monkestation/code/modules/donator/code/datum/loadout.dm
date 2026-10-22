@@ -401,7 +401,7 @@
 //GNOB ITEMS
 /datum/loadout_item/glasses/sechud_terminated
 	name = "Terminated Sechuds"
-	item_path = /obj/item/clothing/glasses/hud/security/terminated
+	item_path = /obj/item/clothing/glasses/hud/security/sunglasses/terminated
 	donator_only = TRUE
 	requires_purchase = FALSE
 	restricted_roles = list(JOB_SECURITY_OFFICER,JOB_SECURITY_ASSISTANT,JOB_HEAD_OF_SECURITY,JOB_WARDEN)

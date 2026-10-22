@@ -421,7 +421,7 @@
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/toy,
 	)
-/obj/item/clothing/glasses/hud/security/terminated
+/obj/item/clothing/glasses/hud/security/sunglasses/terminated
 	name = "terminated security HUD"
 	desc = "My job is to protect you."
 	icon = 'monkestation/code/modules/donator/icons/obj/clothing.dmi'
